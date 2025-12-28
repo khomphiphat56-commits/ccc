@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1 Year Anniversary 💜</title>
+
+<style>
+:root{
+  --bg1:#f7f3ff;
+  --bg2:#e9ddff;
+  --bg3:#d7c7ff;
+  --accent:#9b7cff;
+  --deep:#5f4b8b;
+  --soft:#7b6fa3;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI",system-ui,sans-serif;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  overflow:hidden;
+}
+
+/* แสงพื้นหลัง */
+.glow{
+  position:fixed;
+  width:420px;
+  height:420px;
+  background:radial-gradient(circle,rgba(200,170,255,.45),transparent 70%);
+  filter:blur(60px);
+  animation:glowMove 18s infinite alternate ease-in-out;
+  z-index:0;
+}
+.glow.g1{top:-120px;left:-120px}
+.glow.g2{bottom:-150px;right:-150px;animation-delay:6s}
+
+@keyframes glowMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(120px)}
+}
+
+/* เอฟเฟกลอย */
+.bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+.float-heart,.float-img{
+  position:absolute;
+  bottom:-80px;
+  opacity:.75;
+  animation:rise linear forwards;
+}
+
+.float-img{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 8px 20px rgba(140,100,200,.35);
+}
+
+@keyframes rise{
+  from{
+    transform:translateY(0) translateX(0) scale(.9);
+    opacity:0;
+  }
+  15%{opacity:.8}
+  to{
+    transform:translateY(-130vh) translateX(70px) scale(1.15);
+    opacity:0;
+  }
+}
+
+/* หน้าเข้า */
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#cbb6ff,#9f83ff);
+  transition:.9s ease;
+}
+
+.intro-box{
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(14px);
+  padding:48px 36px;
+  border-radius:36px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  color:#fff;
+}
+
+.intro-box h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.intro-box p{
+  font-size:15px;
+  opacity:.95;
+}
+
+.intro-box button{
+  margin-top:26px;
+  padding:14px 42px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  background:#fff;
+  color:#7a4bff;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+/* หน้าหลัก */
+.main{
+  position:relative;
+  z-index:10;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:24px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.9s ease;
+}
+
+.main.show{
+  opacity:1;
+  transform:none;
+}
+
+/* การ์ด */
+.card{
+  width:100%;
+  max-width:500px;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(18px);
+  border-radius:34px;
+  padding:44px 32px;
+  text-align:center;
+  box-shadow:0 40px 80px rgba(140,110,200,.32);
+}
+
+/* รูป */
+.photo-wrap{
+  position:relative;
+  width:190px;
+  height:190px;
+  margin:0 auto 20px;
+}
+
+.photo-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:50%;
+  background:conic-gradient(#d7c7ff,#b69bff,#d7c7ff);
+  filter:blur(10px);
+  animation:spin 10s linear infinite;
+}
+
+@keyframes spin{
+  from{transform:rotate(0)}
+  to{transform:rotate(360deg)}
+}
+
+.photo{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  border:6px solid rgba(255,255,255,.95);
+  box-shadow:0 20px 45px rgba(140,110,200,.45);
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ข้อความ */
+h2{
+  margin:18px 0 6px;
+  font-size:30px;
+  color:var(--deep);
+}
+
+.names{
+  font-size:18px;
+  color:#6a5f8f;
+  margin-bottom:6px;
+}
+
+.sub{
+  font-size:15px;
+  color:var(--soft);
+}
+
+.badge{
+  display:inline-block;
+  margin-top:12px;
+  padding:7px 18px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#c2abff,#9a7dff);
+  color:#fff;
+  font-size:14px;
+  box-shadow:0 10px 24px rgba(140,110,200,.45);
+}
+
+.divider{
+  margin:28px auto;
+  width:100px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  position:relative;
+}
+
+.divider::after{
+  content:"💜";
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.msg{
+  font-size:15px;
+  line-height:1.9;
+  color:#6a5f8f;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="bg" id="bg"></div>
+
+<!-- หน้าเข้า -->
+<div id="intro">
+  <div class="intro-box">
+    <h1>สำหรับคนพิเศษ 💜</h1>
+    <p>แตะเพื่อเปิดความทรงจำของเรา</p>
+    <button onclick="enter()">✨ กดเพื่อเข้า</button>
+  </div>
+</div>
+
+<!-- หน้าหลัก -->
+<div class="main" id="main">
+  <div class="card">
+
+    <div class="photo-wrap">
+      <div class="photo">
+        <img src="main.jpg">
+      </div>
+    </div>
+
+    <h2>Happy Anniversary</h2>
+    <div class="names">เอิร์ท 🤍 โอปอ</div>
+    <div class="badge">💜 1 Year 💜</div>
+
+    <div class="divider"></div>
+
+    <div class="msg">
+      (คุณแก้ข้อความตรงนี้ได้เอง)<br><br>
+      หนึ่งปีที่ผ่านมามีทั้งรอยยิ้ม  
+      ความเข้าใจ และความทรงจำดี ๆ  
+      ขอบคุณที่ยังจับมือกันมาถึงวันนี้
+    </div>
+
+  </div>
+</div>
+
+<script>
+const bg=document.getElementById("bg");
+const intro=document.getElementById("intro");
+const main=document.getElementById("main");
+
+const hearts=["💜","💖","💗","🤍","✨","🌸","💞","💫"];
+const imgs=["pic1.jpg","pic2.jpg"];
+
+/* เสียงแบบไม่ใช้ไฟล์ */
+function playSound(){
+  const ctx=new (window.AudioContext||window.webkitAudioContext)();
+  const osc=ctx.createOscillator();
+  const gain=ctx.createGain();
+  osc.type="sine";
+  osc.frequency.value=880;
+  gain.gain.value=0.0001;
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start();
+  gain.gain.exponentialRampToValueAtTime(0.2,ctx.currentTime+0.05);
+  gain.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+0.4);
+  osc.stop(ctx.currentTime+0.4);
+}
+
+function enter(){
+  playSound();
+  intro.style.opacity="0";
+  setTimeout(()=>{
+    intro.style.display="none";
+    main.classList.add("show");
+  },700);
+}
+
+function spawn(){
+  const isImg=Math.random()>0.4;
+
+  if(isImg){
+    const img=document.createElement("img");
+    img.src=imgs[Math.floor(Math.random()*imgs.length)];
+    img.className="float-img";
+    img.style.left=Math.random()*100+"vw";
+    img.style.animationDuration=(6+Math.random()*6)+"s";
+    bg.appendChild(img);
+    setTimeout(()=>img.remove(),16000);
+  }else{
+    const h=document.createElement("div");
+    h.className="float-heart";
+    h.textContent=hearts[Math.floor(Math.random()*hearts.length)];
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(16+Math.random()*22)+"px";
+    h.style.animationDuration=(5+Math.random()*6)+"s";
+    bg.appendChild(h);
+    setTimeout(()=>h.remove(),16000);
+  }
+}
+
+setInterval(spawn,140);
+</script>
+
+</body>
+</html>
